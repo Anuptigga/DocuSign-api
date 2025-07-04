@@ -7,7 +7,12 @@ import pdfRoute from "./routes/pdfRoutes.js";
 import signRoute from "./routes/signRoutes.js";
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN,
+  })
+);
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 dbConnect();
 app.use("/api/auth",authRoute)
