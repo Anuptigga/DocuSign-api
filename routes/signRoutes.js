@@ -5,7 +5,7 @@ import { uploadSign, getAllSign, getSign, deleteSign } from "../controllers/sign
 
 const router = express.Router();
 
-router.post('/upload', authenticated, upload.single("signature"), uploadSign);
+router.post('/upload', authenticated, upload.single("file"), uploadSign);
 router.get('/', authenticated, getAllSign);
 router.get('/:id', authenticated, getSign);
 router.delete('/:id', authenticated, deleteSign);
